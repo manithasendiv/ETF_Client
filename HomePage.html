@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <style>
+    *{
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;;
+    }
+  </style>
+  <body>
+    <h1>Students</h1>
+    <ul id="studentsSearch"></ul>
+
+    <select name="searchOption" id="searchOption">
+      <option value="id">ID</option>
+      <option value="firstName">First Name</option>
+      <option value="lastName">Last Name</option>
+      <option value="email">Email</option>
+      <option value="city">City</option>
+      <option value="course">Course</option>
+      <option value="guardian">Guardian</option>
+    </select>
+    <input type="search" id="searchText" placeholder="Search" />
+    <button type="submit" id="searchButton">Search</button>
+
+    <div id="studentDetails"></div>
+
+    <script>
+      $("#searchButton").click(function () {
+        let searchOption = document.getElementById("searchOption").value;
+        let searchText = document.getElementById("searchText").value;
+        if (searchOption == "id") {
+          // ajax call to get student by id
+
+        } else if (searchOption == "firstName") {
+          // ajax call to get student by first name
+          $.ajax({
+            url: "http://localhost:3000/students/searchFirstName/" + searchText,
+            type: "GET",
+            contentType: "application/json",
+            dataType: "json",
+            success: function (data, textStatus, jQXhr) {
+                let student = data[0];
+                let studentCard = `
+                  <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h3 class="card-title">${student.firstName} ${student.lastName}</h3>
+                      <p class="card-text">
+                        <strong>ID:</strong> ${student.sid}<br>
+                        <strong>Email:</strong> ${student.email}<br>
+                        <strong>City:</strong> ${student.nearCity}<br>
+                        <strong>Course:</strong> ${student.course}<br>
+                        <strong>Guardian:</strong> ${student.guardian}<br>
+                        <strong>Subjects:</strong> ${student.subjects}<br>
+                      </p>
+                    </div>
+                  </div>
+                `;
+                $("#studentDetails").html(studentCard);
+            },
+          });
+        }
+        else if(searchOption == "lastName"){
+          // ajax call to get student by last name
+        }
+        else if(searchOption == "email"){
+          // ajax call to get student by email
+
+        }
+        else if(searchOption == "city"){
+          // ajax call to get student by city
+
+        }
+        else if(searchOption == "course"){
+          // ajax call to get student by course
+
+        }
+        else if(searchOption == "guardian"){
+          // ajax call to get student by guardian
+
+        }
+      });
+    </script>
+  </body>
+</html>
