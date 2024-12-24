@@ -1,37 +1,49 @@
-$(document).ready(function(){
-    // all member javascript codes
+$(document).ready(function () {
+  // all member javascript codes
 
-    // Home page - search student JS
-    $("#searchButton").click(function () {
-        let searchOption = document.getElementById("searchOption").value;
-        let searchText = document.getElementById("searchText").value;
-        if (searchOption == "id") {
-          // ajax call to get student by id
+  // navbar toggle button
+  const hamBurger = $(".toggle-btn")[0];
 
-        } else if (searchOption == "firstName") {
-          // ajax call to get student by first name
-          
-        }
-        else if(searchOption == "lastName"){
-          // ajax call to get student by last name
-        }
-        else if(searchOption == "email"){
-          // ajax call to get student by email
+  $(hamBurger).on("click", function () {
+    $("#sidebar").toggleClass("expand");
+  });
 
-        }
-        else if(searchOption == "city"){
-          // ajax call to get student by city
+  // search by select option
+  $("#searchBySelect").on("change", function () {
+    var selectedOption = $(this).find("option:selected").text();
+    $("#searchInput").attr("placeholder", "Enter Student's " + selectedOption);
+  });
 
-        }
-        else if(searchOption == "course"){
-          // ajax call to get student by course
+  // Home page - search student JS
+  $("#searchButton").click(function () {
+    let searchOption = document.getElementById("searchOption").value;
+    let searchText = document.getElementById("searchInput").value;
 
-        }
-        else if(searchOption == "guardian"){
-          // ajax call to get student by guardian
+    if (searchOption == "id") {
+      // ajax call to get student by id
 
-        }
-      });
+    } else if (searchOption == "firstName") {
+      // ajax call to get student by first name
 
-      
+    } else if (searchOption == "lastName") {
+      // ajax call to get student by last name
+
+    } else if (searchOption == "email") {
+      // ajax call to get student by email
+
+    } else if (searchOption == "city") {
+      // ajax call to get student by city
+
+    } else if (searchOption == "course") {
+      // ajax call to get student by course
+
+    } else if (searchOption == "guardian") {
+      // ajax call to get student by guardian
+
+    }
+  });
+
+  // other jquery code starts from here
+  
+
 });
