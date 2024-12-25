@@ -16,12 +16,12 @@ $(document).ready(function () {
 
   // Home page - search student JS
   $("#searchButton").click(function () {
+    event.preventDefault();
     let searchOption = document.getElementById("searchBySelect").value;
     let searchText = document.getElementById("searchInput").value;
 
     if (searchOption == "id") {
       // ajax call to get student by id
-      
     } else if (searchOption == "firstName") {
       // ajax call to get student by first name
       $.ajax({
@@ -84,13 +84,10 @@ $(document).ready(function () {
       });
     } else if (searchOption == "email") {
       // ajax call to get student by email
-
     } else if (searchOption == "city") {
       // ajax call to get student by city
-
     } else if (searchOption == "course") {
       // ajax call to get student by course
-
     } else if (searchOption == "guardian") {
       // ajax call to get student by guardian
     }
