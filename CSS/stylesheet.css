@@ -104,3 +104,9 @@ a.sidebar-link:hover {
 }
 
 /* other css codes starts from here */
+
+.student-details{
+  margin-top: 30px;
+  display: flex;
+  gap: 30px;
+}
