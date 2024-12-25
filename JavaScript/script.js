@@ -16,6 +16,7 @@ $(document).ready(function () {
 
   // Home page - search student JS
   $("#searchButton").click(function () {
+    event.preventDefault();
     let searchOption = document.getElementById("searchBySelect").value;
     let searchText = document.getElementById("searchInput").value;
 
