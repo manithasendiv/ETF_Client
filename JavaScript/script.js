@@ -32,7 +32,7 @@ $(document).ready(function () {
         success: function (data, textStatus, jQXhr) {
           let student = data[0];
           let studentCard = `
-              <div class="card" style="width: 18rem;">
+              <div class="card" style="width: 20rem;">
                 <div class="card-body">
                   <h3 class="card-title">${student.firstName} ${student.lastName}</h3>
                   <p class="card-text">
